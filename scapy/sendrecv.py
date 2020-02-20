@@ -572,7 +572,10 @@ opened_socket: provide an object ready to use .recv() on
                     lst.append(p)
                 c += 1
                 if prn:
-                    r = prn(p)
+                    try:
+                        r = prn(p)
+                    except:
+                        r = None
                     if r is not None:
                         print r
                 if count > 0 and c >= count:
